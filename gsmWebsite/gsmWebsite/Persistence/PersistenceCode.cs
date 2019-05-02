@@ -34,5 +34,27 @@ namespace gsmWebsite.Persistence
             conn.Close();
             return lijst;
         }
+
+
+        public artikel LoadArtikelMetNR(int ArtNR)
+        {
+            MySqlConnection conn = new MySqlConnection(connStr);
+            conn.Open();
+            string qry = "select ArtNr,Naam,Prijs,Voorraad from tblartikel where ArtNr=" + ArtNR;
+            MySqlCommand cmd = new MySqlCommand(qry, conn);
+            MySqlDataReader dtr = cmd.ExecuteReader();
+            artikel artikel = new artikel();
+            while (dtr.Read())
+            {
+                artikel.ArtNr = Convert.ToInt32(dtr["ArtNr"]);
+                artikel.Naam = Convert.ToString(dtr["Naam"]);
+                artikel.Prijs = Convert.ToDouble(dtr["Prijs"]);
+                artikel.Voorraad = Convert.ToInt32(dtr["Voorraad"]);
+                artikel.Foto = Convert.ToString(dtr["Foto"]);
+            }
+            conn.Close();
+            return artikel;
+
+        }
     }
 }

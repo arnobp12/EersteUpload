@@ -14,5 +14,10 @@ namespace gsmWebsite.Business
         {
             return _persistence.loadArtikels();
         }
+
+        public artikel LaadArtikelmetnummer(int ArtNr)
+        {
+          return _persistence.LoadArtikelMetNR(ArtNr);
+        }
     }
 }

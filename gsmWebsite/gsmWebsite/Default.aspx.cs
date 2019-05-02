@@ -15,6 +15,18 @@ namespace gsmWebsite
         {
             gvArtikels.DataSource = _controller.HaalArtikelsOp();
             gvArtikels.DataBind();
+
+            for (int i = 0; i >= gvArtikels.Rows.Count - 1; i++)
+            {
+                if (Convert.ToInt32(gvArtikels.SelectedRow.Cells[i]) == 0)
+                {
+                    gvArtikels.SelectedRow.Cells[5].Text = "Niet op voorraad.";
+                }
+                else
+                {
+                    gvArtikels.SelectedRow.Cells[5].Text = "Voeg product toe aan winkelmandje...";
+                }
+            }
         }
 
         protected void btnWinkelmandje_Click(object sender, EventArgs e)
@@ -23,6 +35,12 @@ namespace gsmWebsite
         }
 
         protected void gvArtikels_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        protected void gvArtikels_PreRender(object sender, EventArgs e)
         {
             
         }

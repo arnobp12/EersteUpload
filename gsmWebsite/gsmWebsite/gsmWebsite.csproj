@@ -78,6 +78,7 @@
     <Content Include="Images\samsung s10 green.png" />
     <Content Include="ItemToevoegenWinkelmandje.aspx" />
     <Content Include="Web.config" />
+    <Content Include="Winkelmandje.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\artikel.cs" />
@@ -99,6 +100,13 @@
     </Compile>
     <Compile Include="Persistence\PersistenceCode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Winkelmandje.aspx.cs">
+      <DependentUpon>Winkelmandje.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Winkelmandje.aspx.designer.cs">
+      <DependentUpon>Winkelmandje.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
