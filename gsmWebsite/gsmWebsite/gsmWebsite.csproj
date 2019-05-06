@@ -69,6 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
     <Content Include="Images\huawei p30 pro.jpg" />
     <Content Include="Images\iphone xr red.png" />
     <Content Include="Images\Iphone xs gold.jpg" />
@@ -77,13 +78,17 @@
     <Content Include="Images\razer gaming.jpg" />
     <Content Include="Images\samsung s10 green.png" />
     <Content Include="ItemToevoegenWinkelmandje.aspx" />
+    <Content Include="Login.aspx" />
     <Content Include="Web.config" />
     <Content Include="Winkelmandje.aspx" />
+    <Content Include="WinkelmandLeeg.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\artikel.cs" />
     <Compile Include="Business\Controller.cs" />
+    <Compile Include="Business\Gebruiker.cs" />
     <Compile Include="Business\Klant.cs" />
+    <Compile Include="Business\winkelmand.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -91,12 +96,22 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="ItemToevoegenWinkelmandje.aspx.cs">
       <DependentUpon>ItemToevoegenWinkelmandje.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ItemToevoegenWinkelmandje.aspx.designer.cs">
       <DependentUpon>ItemToevoegenWinkelmandje.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Persistence\PersistenceCode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -106,6 +121,13 @@
     </Compile>
     <Compile Include="Winkelmandje.aspx.designer.cs">
       <DependentUpon>Winkelmandje.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WinkelmandLeeg.aspx.cs">
+      <DependentUpon>WinkelmandLeeg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WinkelmandLeeg.aspx.designer.cs">
+      <DependentUpon>WinkelmandLeeg.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -28,7 +28,7 @@
                         <asp:BoundField DataField="Voorraad" HeaderText="Voorraad" >
                         <ItemStyle Width="100px" />
                         </asp:BoundField>
-                        <asp:HyperLinkField NavigateUrl="~/ItemToevoegenWinkelmandje.aspx" />
+                        <asp:CommandField SelectText="Voeg toe aan winkelmandje.." ShowSelectButton="True" />
                     </Columns>
                 </asp:GridView>
             </p>

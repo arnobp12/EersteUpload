@@ -16,5 +16,6 @@ namespace gsmWebsite.Business
         public string Mail { get; set; }
         public string Gebr { get; set; }
         public string Wachtwoord { get; set; }
+        public DateTime Orderdatum { get; set; }
     }
 }

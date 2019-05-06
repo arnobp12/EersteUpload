@@ -13,19 +13,46 @@ namespace gsmWebsite
         Controller _controller = new Controller();
         protected void Page_Load(object sender, EventArgs e)
         {
-            int nr = Convert.ToInt32(Session["ArtNr"]);
-            if (!IsPostBack)
+            imgArtikel.ImageUrl ="~/Images/" +  _controller.LaadArtikelmetnummer(Convert.ToInt32(Session["ArtNr"])).Foto;
+            lblArtNr.Text = Convert.ToString(Session["ArtNr"]);
+            lblNaam.Text = _controller.LaadArtikelmetnummer(Convert.ToInt32(Session["ArtNr"])).Naam;
+            lblPrijs.Text = _controller.LaadArtikelmetnummer(Convert.ToInt32(Session["ArtNr"])).Prijs.ToString();
+            lblVoorraad.Text = _controller.LaadArtikelmetnummer(Convert.ToInt32(Session["ArtNr"])).Voorraad.ToString();
+
+
+
+
+
+
+        }
+        protected void btnvoegtoe(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(txtAantal.Text) > _controller.LaadArtikelmetnummer(Convert.ToInt32(Session["ArtNr"])).Voorraad)
             {
-                DataList1.DataSource = _controller.LaadArtikelmetnummer(nr);
-                DataList1.DataBind();
+               lblfout .Text = "je voorraad is te klein! ";
+
             }
+            else
+            {
+                try
+                {
+                    int NieuweVoorraad = _controller.LaadArtikelmetnummer(Convert.ToInt32(Session["ArtNr"])).Voorraad - Convert.ToInt32(txtAantal.Text);
+                    _controller.voegProductAanMandjeToe(1, _controller.LaadArtikelmetnummer(Convert.ToInt32(Session["ArtNr"])).ArtNr, Convert.ToInt32(txtAantal.Text));
+                    _controller.PasDeVoorraadAAN(Convert.ToInt32(Session["ArtNr"]), NieuweVoorraad);
 
-            //Lid ophalen
+                    Response.Redirect("winkelmandje.aspx");
+                }
+                catch
+                {
+                    lblfout.Text = "Dit product zit al in het mandje. Als u het aantal wil wijzigen, verwijder het dan uit het mandje en voeg het correcte aantal toe.";
+                }
 
-            int id = Convert.ToInt32(DataList1.SelectedValue);
-            
+            }
+        }
 
-            
+        protected void btnVoegtoe_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Winkelmandje.aspx");
         }
     }
 }

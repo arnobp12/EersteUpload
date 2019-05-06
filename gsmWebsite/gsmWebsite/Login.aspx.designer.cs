@@ -10,7 +10,7 @@
 namespace gsmWebsite {
     
     
-    public partial class Winkelmandje {
+    public partial class Login {
         
         /// <summary>
         /// form1 control.
@@ -22,48 +22,57 @@ namespace gsmWebsite {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// lblKlantNr control.
+        /// txtGebruikersNaam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblKlantNr;
+        protected global::System.Web.UI.WebControls.TextBox txtGebruikersNaam;
         
         /// <summary>
-        /// lblNaam control.
+        /// rfvGebr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNaam;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvGebr;
         
         /// <summary>
-        /// lblAdres control.
+        /// txtWachtwoord control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAdres;
+        protected global::System.Web.UI.WebControls.TextBox txtWachtwoord;
         
         /// <summary>
-        /// lblBesteldatum control.
+        /// RequiredFieldValidator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblBesteldatum;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
-        /// gvWinkelmand control.
+        /// lblUitvoer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvWinkelmand;
+        protected global::System.Web.UI.WebControls.Label lblUitvoer;
+        
+        /// <summary>
+        /// Button1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }
