@@ -46,17 +46,19 @@ namespace gsmWebsite.Business
         {
             return _persistence.laadwinkelmand();
         }
-        public void setGebruiker(string GN, string WW)
+
+        public Klant Laadklant(int Klantnr)
+        {
+            return _persistence.LoadKlantMetNR(Klantnr);
+        }
+        
+
+
+        public Boolean controleerCredentials(string GN, string WW)
 
         {
             _gebruiker.Gebr = GN;
             _gebruiker.Wachtwoord = WW;
-        }
-
-        public Boolean controleerCredentials()
-
-        {
-
             return _persistence.controleerCredentials(_gebruiker);
 
         }

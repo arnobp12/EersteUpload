@@ -11,7 +11,7 @@
         <div>
             <h1>Online GSM-shop - Catalogus</h1>
             <p>
-                <asp:GridView ID="gvArtikels" runat="server" AutoGenerateColumns="False" Height="110px" Width="242px" OnSelectedIndexChanged="gvArtikels_SelectedIndexChanged">
+                <asp:GridView ID="gvArtikels" runat="server" AutoGenerateColumns="False" Height="270px" Width="1146px" OnSelectedIndexChanged="gvArtikels_SelectedIndexChanged">
                     <Columns>
                         <asp:BoundField DataField="ArtNr" HeaderText="ArtNr">
                         <ItemStyle Width="75px" />
@@ -20,15 +20,17 @@
                         <ItemStyle Width="250px" />
                         </asp:BoundField>
                         <asp:ImageField HeaderText="Foto" DataImageUrlField="Foto" DataImageUrlFormatString="~/Images/{0}">
-                            <ControlStyle Height="150px" Width="110px" />
+                            <ControlStyle Height="200px" Width="175px" />
                         </asp:ImageField>
-                        <asp:BoundField DataField="Prijs" HeaderText="Verkoopprijs">
+                        <asp:BoundField DataField="Prijs" HeaderText="Verkoopprijs" DataFormatString="{0:c}">
                         <ItemStyle Width="150px" />
                         </asp:BoundField>
                         <asp:BoundField DataField="Voorraad" HeaderText="Voorraad" >
                         <ItemStyle Width="100px" />
                         </asp:BoundField>
-                        <asp:CommandField SelectText="Voeg toe aan winkelmandje.." ShowSelectButton="True" />
+                        <asp:CommandField SelectText="Voeg toe aan winkelmandje.." ShowSelectButton="True" >
+                        <ItemStyle Width="250px" />
+                        </asp:CommandField>
                     </Columns>
                 </asp:GridView>
             </p>

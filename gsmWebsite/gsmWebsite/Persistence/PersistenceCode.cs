@@ -27,7 +27,7 @@ namespace gsmWebsite.Persistence
                 _artikel.ArtNr = Convert.ToInt32(dtr[("ArtNr")]);
                 _artikel.Naam = Convert.ToString(dtr[("Naam")]);
                 _artikel.Voorraad = Convert.ToInt32(dtr[("Voorraad")]);
-                _artikel.Prijs = Convert.ToDouble(dtr[("Prijs")]);
+                _artikel.Prijs =  Convert.ToDouble(dtr[("Prijs")]);
                 _artikel.Foto = Convert.ToString(dtr[("Foto")]);
                 lijst.Add(_artikel);
             }
@@ -123,7 +123,7 @@ namespace gsmWebsite.Persistence
         {
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
-            string qry = "select KlantNR,Naam,Voornaam,Adres,PC,Gemeente,OrderDatum from tblKlant inner join tblbestelling on tblKlant.KlantNr = tblbestelling.KlantNr  where KlantNr=" + KlantNR;
+            string qry = "select KlantNR,Naam,Voornaam,Adres,PC,Gemeente,Orderdatum from tblKlant inner join tblbestelling on tblKlant.KlantNr = tblbestelling.KlantNr  where KlantNr=" + KlantNR;
             MySqlCommand cmd = new MySqlCommand(qry, conn);
             MySqlDataReader dtr = cmd.ExecuteReader();
             Klant Klant = new Klant();
@@ -135,8 +135,7 @@ namespace gsmWebsite.Persistence
                 Klant.adres = Convert.ToString(dtr["Adres"]);
                 Klant.PC = Convert.ToInt32(dtr["PC"]);
                 Klant.Gemeente = Convert.ToString(dtr["Gemeente"]);
-                Klant.Orderdatum = DateTime.Now("YYYY");
-
+                Klant.Orderdatum = Convert.ToString(dtr["orderdatum"]);
             }
             conn.Close();
             return Klant;

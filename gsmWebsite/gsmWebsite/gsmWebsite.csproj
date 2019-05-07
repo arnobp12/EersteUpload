@@ -70,6 +70,7 @@
   <ItemGroup>
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Images\deletebutton.jpg" />
     <Content Include="Images\huawei p30 pro.jpg" />
     <Content Include="Images\iphone xr red.png" />
     <Content Include="Images\Iphone xs gold.jpg" />

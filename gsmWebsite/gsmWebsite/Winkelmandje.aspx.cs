@@ -12,11 +12,15 @@ namespace gsmWebsite
         Controller _controller = new Controller();
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            lblArtNr.Text = Convert.ToString(Session["ArtNr"]);
-            lblNaam.Text = _controller.LaadArtikelmetnummer(Convert.ToInt32(Session["ArtNr"])).Naam;
-            lblPrijs.Text = _controller.LaadArtikelmetnummer(Convert.ToInt32(Session["ArtNr"])).Prijs.ToString();
-            lblVoorraad.Text = _controller.LaadArtikelmetnummer(Convert.ToInt32(Session["ArtNr"])).Voorraad.ToString();
+
+
+
+            // lblKlantNr.Text = _controller.Laadklant()
+            // lblNaam.Text = _controller.LaadArtikelmetnummer(Convert.ToInt32(Session["ArtNr"])).Naam;
+            //lblPrijs.Text = _controller.LaadArtikelmetnummer(Convert.ToInt32(Session["ArtNr"])).Prijs.ToString();
+            // lblVoorraad.Text = _controller.LaadArtikelmetnummer(Convert.ToInt32(Session["ArtNr"])).Voorraad.ToString();
+
+
             gvWinkelmand.DataSource = _controller.haalwinkelmandop();
             gvWinkelmand.DataBind();
 

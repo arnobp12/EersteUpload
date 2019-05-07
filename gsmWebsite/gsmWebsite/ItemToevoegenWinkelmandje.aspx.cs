@@ -16,7 +16,7 @@ namespace gsmWebsite
             imgArtikel.ImageUrl ="~/Images/" +  _controller.LaadArtikelmetnummer(Convert.ToInt32(Session["ArtNr"])).Foto;
             lblArtNr.Text = Convert.ToString(Session["ArtNr"]);
             lblNaam.Text = _controller.LaadArtikelmetnummer(Convert.ToInt32(Session["ArtNr"])).Naam;
-            lblPrijs.Text = _controller.LaadArtikelmetnummer(Convert.ToInt32(Session["ArtNr"])).Prijs.ToString();
+            lblPrijs.Text = "€ "+_controller.LaadArtikelmetnummer(Convert.ToInt32(Session["ArtNr"])).Prijs.ToString();
             lblVoorraad.Text = _controller.LaadArtikelmetnummer(Convert.ToInt32(Session["ArtNr"])).Voorraad.ToString();
 
 

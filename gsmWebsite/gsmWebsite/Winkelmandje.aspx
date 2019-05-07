@@ -48,7 +48,9 @@
             &nbsp;</p>
         <asp:GridView ID="gvWinkelmand" runat="server" AutoGenerateColumns="False">
             <Columns>
-                <asp:CommandField ShowSelectButton="True" />
+                <asp:CommandField ShowSelectButton="True" ButtonType="Image" SelectImageUrl="~/Images/deletebutton.jpg" >
+                <ControlStyle Height="75px" Width="75px" />
+                </asp:CommandField>
                 <asp:ImageField HeaderText="Foto">
                 </asp:ImageField>
                 <asp:BoundField DataField="ArtNR" HeaderText="ArtNR">

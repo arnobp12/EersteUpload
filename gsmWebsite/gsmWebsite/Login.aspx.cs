@@ -19,11 +19,11 @@ namespace gsmWebsite
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            _controller.setGebruiker(txtGebruikersNaam.Text, txtWachtwoord.Text);
+           
 
-            if (_controller.controleerCredentials() == true)
+            if (_controller.controleerCredentials(txtGebruikersNaam.Text, txtWachtwoord.Text) == true)
             {
-                Response.Redirect("Default.aspx");
+                FormsAuthentication.RedirectFromLoginPage(txtGebruikersNaam.Text, false);
             }
             else
             {
