@@ -46,7 +46,7 @@
             &nbsp;</p>
         <p>
             &nbsp;</p>
-        <asp:GridView ID="gvWinkelmand" runat="server" AutoGenerateColumns="False">
+        <asp:GridView ID="gvWinkelmand" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="gvWinkelmand_SelectedIndexChanged">
             <Columns>
                 <asp:CommandField ShowSelectButton="True" ButtonType="Image" SelectImageUrl="~/Images/deletebutton.jpg" >
                 <ControlStyle Height="75px" Width="75px" />

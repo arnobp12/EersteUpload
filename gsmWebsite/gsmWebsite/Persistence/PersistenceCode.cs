@@ -101,7 +101,7 @@ namespace gsmWebsite.Persistence
         {
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
-            string qry = "select Foto, tblwinkelmand.ArtNr, Naam, Aantal, Prijs, sum(Aantal * Prijs) as Totaal  from tblwinkelmand inner join " +
+            string qry = "select Foto, tblArtikel.ArtNr, Naam, Aantal, Prijs, sum(Aantal * Prijs) as Totaal  from tblwinkelmand inner join " +
                 "tblartikel on tblwinkelmand.ArtNr = tblartikel.ArtNr";
             MySqlCommand cmd = new MySqlCommand(qry, conn);
             MySqlDataReader dtr = cmd.ExecuteReader();
@@ -164,6 +164,16 @@ namespace gsmWebsite.Persistence
                 return false;
             }
 
+        }
+        public void VerwijderProduct(int ArtNr)
+        {
+            MySqlConnection sqlConn = new MySqlConnection(connStr);
+
+            sqlConn.Open();
+            string query = "Delete from tblWinkelmand where ArtNr=" + ArtNr;
+            MySqlCommand sqlCmd = new MySqlCommand(query, sqlConn);
+            sqlCmd.ExecuteNonQuery();
+            sqlConn.Close();
         }
     }
 }

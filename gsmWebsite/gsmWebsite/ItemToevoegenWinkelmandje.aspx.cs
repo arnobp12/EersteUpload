@@ -39,6 +39,7 @@ namespace gsmWebsite
                     int NieuweVoorraad = _controller.LaadArtikelmetnummer(Convert.ToInt32(Session["ArtNr"])).Voorraad - Convert.ToInt32(txtAantal.Text);
                     _controller.voegProductAanMandjeToe(1, _controller.LaadArtikelmetnummer(Convert.ToInt32(Session["ArtNr"])).ArtNr, Convert.ToInt32(txtAantal.Text));
                     _controller.PasDeVoorraadAAN(Convert.ToInt32(Session["ArtNr"]), NieuweVoorraad);
+                    _controller.SaveProduct();
 
                     Response.Redirect("winkelmandje.aspx");
                 }

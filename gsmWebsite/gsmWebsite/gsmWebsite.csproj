@@ -89,6 +89,7 @@
     <Compile Include="Business\Controller.cs" />
     <Compile Include="Business\Gebruiker.cs" />
     <Compile Include="Business\Klant.cs" />
+    <Compile Include="Business\Mailsender.cs" />
     <Compile Include="Business\winkelmand.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

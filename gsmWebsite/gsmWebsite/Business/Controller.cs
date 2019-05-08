@@ -32,9 +32,12 @@ namespace gsmWebsite.Business
             _winkelmand.KlantNr = klantnr;
             _winkelmand.ArtNr = artnr;
             _winkelmand.aantal = aantal;
+            
+
+        }
+        public void SaveProduct()
+        {
             _persistence.toevoegenAanwinkemand(_winkelmand);
-
-
         }
 
         public void PasDeVoorraadAAN(int ArtNr, int Voorraad)
@@ -61,6 +64,11 @@ namespace gsmWebsite.Business
             _gebruiker.Wachtwoord = WW;
             return _persistence.controleerCredentials(_gebruiker);
 
+        }
+        public void deleteKlant(int ArtNr)
+
+        {
+            _persistence.VerwijderProduct(ArtNr);
         }
     }
 }

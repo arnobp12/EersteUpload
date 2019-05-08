@@ -25,5 +25,11 @@ namespace gsmWebsite
             gvWinkelmand.DataBind();
 
         }
+
+        protected void gvWinkelmand_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int ArtNr = Convert.ToInt32(gvWinkelmand.SelectedRow.Cells[2].Text);
+            _controller.deleteKlant(ArtNr);
+        }
     }
 }
