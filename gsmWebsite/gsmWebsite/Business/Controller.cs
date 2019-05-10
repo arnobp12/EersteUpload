@@ -31,7 +31,7 @@ namespace gsmWebsite.Business
         {
             _winkelmand.KlantNr = klantnr;
             _winkelmand.ArtNr = artnr;
-            _winkelmand.aantal = aantal;
+            _winkelmand.Aantal = aantal;
             _persistence.toevoegenAanwinkemand(_winkelmand);
 
         }

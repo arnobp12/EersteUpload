@@ -81,7 +81,7 @@ namespace gsmWebsite.Persistence
         {
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
-            string qry = "insert into tblwinkelmand(KlantNr,ArtNr, Aantal) values (" + winkelmand.KlantNr + "," + winkelmand.ArtNr + "," + winkelmand.aantal + ")";
+            string qry = "insert into tblwinkelmand(KlantNr,ArtNr, Aantal) values (" + winkelmand.KlantNr + "," + winkelmand.ArtNr + "," + winkelmand.Aantal + ")";
             MySqlCommand cmd = new MySqlCommand(qry, conn);
             cmd.ExecuteNonQuery();
             conn.Close();

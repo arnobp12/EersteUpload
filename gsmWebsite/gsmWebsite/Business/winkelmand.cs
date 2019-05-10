@@ -9,7 +9,6 @@ namespace gsmWebsite.Business
     {
         public int KlantNr { get; set; }
         public int ArtNr { get; set; }
-        public int aantal { get; set; }
         public string Naam { get; set; }
         public int Voorraad { get; set; }
         public double Prijs { get; set; }
