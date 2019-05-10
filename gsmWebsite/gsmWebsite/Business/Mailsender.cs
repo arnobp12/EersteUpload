@@ -9,10 +9,10 @@ namespace gsmWebsite.Business
     public class Mailsender
     {
         //private variables
-        
-       
-       
-        
+
+
+
+
 
         //public variables
         public string Naam { get; set; }
@@ -20,7 +20,7 @@ namespace gsmWebsite.Business
         public string Onderwerp { get; set; }
         public string Boodschap { get; set; }
         public string MailAdres { get; set; }
-      
+
 
         //method
         public string StuurMail()
@@ -29,16 +29,16 @@ namespace gsmWebsite.Business
             {
                 //SMTP-client aanmaken en configureren
                 SmtpClient mijnSMTP = new SmtpClient();
-                mijnSMTP.Host = "smtp-mail.outlook.com";
+                mijnSMTP.Host = "smtp-mail.Gmail.com";
                 mijnSMTP.Port = 587;
                 mijnSMTP.EnableSsl = true;
-                mijnSMTP.Credentials = new System.Net.NetworkCredential("zesitnkcst@outlook.com", "Test123456");
+                mijnSMTP.Credentials = new System.Net.NetworkCredential("zesitnkcst@gmail.com", "Test123456");
 
                 //Mailbericht aanmaken en configureren
                 //From werkt in C# niet zoals je zou verwachten (de ontvanger blijft het eigen adres als verzender zien).
                 //Wil je toch het mailadres kennen van de verzender, voorzie dan een tekstvak en plak het aan het bericht zelf vast.
                 MailMessage mijnMail = new MailMessage("zesitnkcst@outlook.com", "zesitnkcst@outlook.com");
-                mijnMail.Subject =Onderwerp;
+                mijnMail.Subject = Onderwerp;
                 mijnMail.Body = "Van: " + Mail + " (" + Naam + ")" + Environment.NewLine + Boodschap;
 
                 //Mailbericht versturen via SMTP-client
@@ -47,4 +47,5 @@ namespace gsmWebsite.Business
                 return "Mail succesvol verzonden.";
             }
         }
+    }
 }

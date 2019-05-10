@@ -32,27 +32,29 @@ namespace gsmWebsite.Business
             _winkelmand.KlantNr = klantnr;
             _winkelmand.ArtNr = artnr;
             _winkelmand.aantal = aantal;
-            
+            _persistence.toevoegenAanwinkemand(_winkelmand);
 
         }
-        public void SaveProduct()
-        {
-            _persistence.toevoegenAanwinkemand(_winkelmand);
-        }
+        
 
         public void PasDeVoorraadAAN(int ArtNr, int Voorraad)
         {
             _persistence.PasVoorraadAan(ArtNr, Voorraad);
         }
 
-        public List<winkelmand> haalwinkelmandop()
+        public List<winkelmand> haalwinkelmandop(int KlantNr)
         {
-            return _persistence.laadwinkelmand();
+            return _persistence.laadwinkelmand(KlantNr);
         }
 
         public Klant Laadklant(int Klantnr)
         {
             return _persistence.LoadKlantMetNR(Klantnr);
+        }
+
+        public Klant laadklantnummer(string GEbr)
+        {
+            return _persistence.laadklantnummer(GEbr);
         }
         
 
@@ -65,10 +67,14 @@ namespace gsmWebsite.Business
             return _persistence.controleerCredentials(_gebruiker);
 
         }
-        public void deleteKlant(int ArtNr)
+        public void deleteProduct(int ArtNr, int KlantNr)
 
         {
-            _persistence.VerwijderProduct(ArtNr);
+            _persistence.VerwijderProduct(ArtNr, KlantNr);
+        }
+        public bool ControleerDemand(int klantnr)
+        {
+            return _persistence.ControleerWinkelMand(klantnr);
         }
     }
 }

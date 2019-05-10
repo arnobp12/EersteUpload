@@ -30,7 +30,7 @@ namespace gsmWebsite
 
         protected void btnWinkelmandje_Click(object sender, EventArgs e)
         {
-            if (_controller.controleervoorraad(1))
+            if (_controller.controleervoorraad(Convert.ToInt32(Session["KlantNr"])))
             {
                 Response.Redirect("winkelmandje.aspx");
             }

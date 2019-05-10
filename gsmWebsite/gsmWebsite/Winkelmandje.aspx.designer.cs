@@ -49,6 +49,24 @@ namespace gsmWebsite {
         protected global::System.Web.UI.WebControls.Label lblAdres;
         
         /// <summary>
+        /// lblPC control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPC;
+        
+        /// <summary>
+        /// lblgemeente control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblgemeente;
+        
+        /// <summary>
         /// lblBesteldatum control.
         /// </summary>
         /// <remarks>
@@ -65,5 +83,23 @@ namespace gsmWebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvWinkelmand;
+        
+        /// <summary>
+        /// btnbestel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnbestel;
+        
+        /// <summary>
+        /// btnTerugCat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnTerugCat;
     }
 }

@@ -32,6 +32,10 @@
                     <td>Adres:</td>
                     <td>
                         <asp:Label ID="lblAdres" runat="server"></asp:Label>
+                        <br />
+                        <asp:Label ID="lblPC" runat="server"></asp:Label>
+&nbsp;&nbsp;
+                        <asp:Label ID="lblgemeente" runat="server"></asp:Label>
                     </td>
                 </tr>
                 <tr>
@@ -51,7 +55,8 @@
                 <asp:CommandField ShowSelectButton="True" ButtonType="Image" SelectImageUrl="~/Images/deletebutton.jpg" >
                 <ControlStyle Height="75px" Width="75px" />
                 </asp:CommandField>
-                <asp:ImageField HeaderText="Foto">
+                <asp:ImageField HeaderText="Foto" DataImageUrlField="Foto" DataImageUrlFormatString="~/Images/{0}">
+                    <ControlStyle Height="175px" Width="175px" />
                 </asp:ImageField>
                 <asp:BoundField DataField="ArtNR" HeaderText="ArtNR">
                 <ItemStyle Width="75px" />
@@ -65,9 +70,16 @@
                 <asp:BoundField DataField="Prijs" HeaderText="Prijs">
                 <ItemStyle Width="200px" />
                 </asp:BoundField>
-                <asp:BoundField DataField="Totaal" HeaderText="Totaal" />
+                <asp:BoundField DataField="Totaal" HeaderText="Totaal" DataFormatString="{0:c}" />
             </Columns>
         </asp:GridView>
+        <p>
+            &nbsp;</p>
+        <p>
+            <asp:Button ID="btnbestel" runat="server" OnClick="btnbestel_Click" Text="bestellen" Width="313px" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="btnTerugCat" runat="server" OnClick="btnTerugCat_Click" Text="Terug naar de catalogus" Width="269px" />
+        </p>
     </form>
 </body>
 </html>

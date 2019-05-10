@@ -86,6 +86,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\artikel.cs" />
+    <Compile Include="Business\Bestelling.cs" />
     <Compile Include="Business\Controller.cs" />
     <Compile Include="Business\Gebruiker.cs" />
     <Compile Include="Business\Klant.cs" />

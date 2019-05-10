@@ -23,6 +23,7 @@ namespace gsmWebsite
 
             if (_controller.controleerCredentials(txtGebruikersNaam.Text, txtWachtwoord.Text) == true)
             {
+                Session["KlantNr"] = _controller.laadklantnummer(txtGebruikersNaam.Text).KlantNr;
                 FormsAuthentication.RedirectFromLoginPage(txtGebruikersNaam.Text, false);
             }
             else

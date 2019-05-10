@@ -27,9 +27,14 @@ namespace gsmWebsite
         }
         protected void btnvoegtoe(object sender, EventArgs e)
         {
+            
+        }
+
+        protected void btnVoegtoe_Click(object sender, EventArgs e)
+        {
             if (Convert.ToInt32(txtAantal.Text) > _controller.LaadArtikelmetnummer(Convert.ToInt32(Session["ArtNr"])).Voorraad)
             {
-               lblfout .Text = "je voorraad is te klein! ";
+                lblfout.Text = "je voorraad is te klein! ";
 
             }
             else
@@ -37,9 +42,9 @@ namespace gsmWebsite
                 try
                 {
                     int NieuweVoorraad = _controller.LaadArtikelmetnummer(Convert.ToInt32(Session["ArtNr"])).Voorraad - Convert.ToInt32(txtAantal.Text);
-                    _controller.voegProductAanMandjeToe(1, _controller.LaadArtikelmetnummer(Convert.ToInt32(Session["ArtNr"])).ArtNr, Convert.ToInt32(txtAantal.Text));
+                    _controller.voegProductAanMandjeToe(Convert.ToInt32(Session["KlantNr"]), _controller.LaadArtikelmetnummer(Convert.ToInt32(Session["ArtNr"])).ArtNr, Convert.ToInt32(txtAantal.Text));
                     _controller.PasDeVoorraadAAN(Convert.ToInt32(Session["ArtNr"]), NieuweVoorraad);
-                    _controller.SaveProduct();
+
 
                     Response.Redirect("winkelmandje.aspx");
                 }
@@ -49,10 +54,6 @@ namespace gsmWebsite
                 }
 
             }
-        }
-
-        protected void btnVoegtoe_Click(object sender, EventArgs e)
-        {
             Response.Redirect("Winkelmandje.aspx");
         }
     }

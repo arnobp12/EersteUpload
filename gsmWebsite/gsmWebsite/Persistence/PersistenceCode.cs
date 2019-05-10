@@ -97,12 +97,12 @@ namespace gsmWebsite.Persistence
             conn.Close();
         }
 
-        public List<winkelmand> laadwinkelmand()
+        public List<winkelmand> laadwinkelmand(int Klantnr)
         {
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
-            string qry = "select Foto, tblArtikel.ArtNr, Naam, Aantal, Prijs, sum(Aantal * Prijs) as Totaal  from tblwinkelmand inner join " +
-                "tblartikel on tblwinkelmand.ArtNr = tblartikel.ArtNr";
+            string qry = "select Foto, tblwinkelmand.ArtNr, Naam, Aantal, Prijs, (Aantal * Prijs) as Totaal  from tblwinkelmand inner join " +
+                "tblartikel on tblwinkelmand.ArtNr = tblartikel.ArtNr where tblWinkelmand.KlantNr= " + Klantnr + " order by tblwinkelmand.ArtNr";
             MySqlCommand cmd = new MySqlCommand(qry, conn);
             MySqlDataReader dtr = cmd.ExecuteReader();
             List<winkelmand> _lijst = new List<winkelmand>();
@@ -115,6 +115,7 @@ namespace gsmWebsite.Persistence
                 winkelmand.Aantal = Convert.ToInt32(dtr["Aantal"]);
                 winkelmand.Prijs = Convert.ToDouble(dtr["Prijs"]);
                 winkelmand.Totaal = Convert.ToDouble(dtr["Totaal"]);
+                _lijst.Add(winkelmand);
             }
             conn.Close();
             return _lijst;
@@ -123,7 +124,7 @@ namespace gsmWebsite.Persistence
         {
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
-            string qry = "select KlantNR,Naam,Voornaam,Adres,PC,Gemeente,Orderdatum from tblKlant inner join tblbestelling on tblKlant.KlantNr = tblbestelling.KlantNr  where KlantNr=" + KlantNR;
+            string qry = "select KlantNr,Naam,Voornaam,Adres,PC,Gemeente from tblKlant where KlantNr=" + KlantNR;
             MySqlCommand cmd = new MySqlCommand(qry, conn);
             MySqlDataReader dtr = cmd.ExecuteReader();
             Klant Klant = new Klant();
@@ -135,11 +136,26 @@ namespace gsmWebsite.Persistence
                 Klant.adres = Convert.ToString(dtr["Adres"]);
                 Klant.PC = Convert.ToInt32(dtr["PC"]);
                 Klant.Gemeente = Convert.ToString(dtr["Gemeente"]);
-                Klant.Orderdatum = Convert.ToString(dtr["orderdatum"]);
+               
             }
             conn.Close();
             return Klant;
 
+        }
+        public Klant laadklantnummer(string Gebr)
+        {
+            MySqlConnection conn = new MySqlConnection(connStr);
+            conn.Open();
+            string qry = "select KlantNr from tblklant where GebrNaam= '" + Gebr + "'";
+            MySqlCommand cmd = new MySqlCommand(qry, conn);
+            MySqlDataReader dtr = cmd.ExecuteReader();
+            Klant Klant = new Klant();
+            while(dtr.Read())
+            {
+                Klant.KlantNr = Convert.ToInt32(dtr["KlantNr"]);
+            }
+            conn.Close();
+            return Klant;
         }
         public Boolean controleerCredentials(Gebruiker gebruiker)
 
@@ -165,15 +181,38 @@ namespace gsmWebsite.Persistence
             }
 
         }
-        public void VerwijderProduct(int ArtNr)
+        public void VerwijderProduct(int ArtNr, int KlantNr)
         {
             MySqlConnection sqlConn = new MySqlConnection(connStr);
 
             sqlConn.Open();
-            string query = "Delete from tblWinkelmand where ArtNr=" + ArtNr;
+            string query= "Delete from tblWinkelmand where ArtNr=" + ArtNr + " and KlantNr =" + KlantNr;
             MySqlCommand sqlCmd = new MySqlCommand(query, sqlConn);
             sqlCmd.ExecuteNonQuery();
             sqlConn.Close();
         }
+
+        public bool ControleerWinkelMand(int klantnr)
+        {
+            MySqlConnection conn = new MySqlConnection(connStr);
+            conn.Open();
+            string qry = "select * from tblwinkelmand where KlantNr = " + klantnr;
+            MySqlCommand cmd = new MySqlCommand(qry, conn);
+            MySqlDataReader dtr = cmd.ExecuteReader();
+            bool isleeg;
+            if (dtr.HasRows)
+            {
+                isleeg = false;
+            }
+            else
+            {
+                isleeg = true;
+            }
+            conn.Close();
+            return isleeg;
+        }
+
+        
+       
     }
 }
