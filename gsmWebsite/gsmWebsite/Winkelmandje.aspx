@@ -67,7 +67,7 @@
                 <asp:BoundField DataField="Aantal" HeaderText="Aantal">
                 <ItemStyle Width="125px" />
                 </asp:BoundField>
-                <asp:BoundField DataField="Prijs" HeaderText="Prijs">
+                <asp:BoundField DataField="Prijs" HeaderText="Prijs" DataFormatString="{0:c}">
                 <ItemStyle Width="200px" />
                 </asp:BoundField>
                 <asp:BoundField DataField="Totaal" HeaderText="Totaal" DataFormatString="{0:c}" />

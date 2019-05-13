@@ -13,7 +13,7 @@ namespace gsmWebsite.Persistence
 
         string connStr = "server=localhost; user id = root; password=Test123; database=dbgsm";
 
-        public List<artikel> loadArtikels()
+        public List<artikel> loadArtikels()  //alle artikels worden opgehaald vanuit de databank
         {
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
@@ -36,7 +36,7 @@ namespace gsmWebsite.Persistence
         }
 
 
-        public artikel LoadArtikelMetNR(int ArtNR)
+        public artikel LoadArtikelMetNR(int ArtNR) //specifiek artikel word opgehaald via het artikelnummer.
         {
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
@@ -57,7 +57,7 @@ namespace gsmWebsite.Persistence
 
         }
 
-        public bool ControleerVoorraad(int klantnr)
+        public bool ControleerVoorraad(int klantnr) //we gaan de voorraad van een artikel controleren via het artikelnummer
         {
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
@@ -77,7 +77,7 @@ namespace gsmWebsite.Persistence
             return isleeg;
         }
 
-        public void toevoegenAanwinkemand(winkelmand winkelmand)
+        public void toevoegenAanwinkemand(winkelmand winkelmand) //we gaan een artikel toevoegen aan de winkelmand
         {
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
@@ -87,7 +87,7 @@ namespace gsmWebsite.Persistence
             conn.Close();
         }
 
-        public void PasVoorraadAan(int ArtNr, int Voorraad)
+        public void PasVoorraadAan(int ArtNr, int Voorraad) 
         {
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
