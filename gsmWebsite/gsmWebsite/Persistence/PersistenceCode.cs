@@ -87,7 +87,7 @@ namespace gsmWebsite.Persistence
             conn.Close();
         }
 
-        public void PasVoorraadAan(int ArtNr, int Voorraad) 
+        public void PasVoorraadAan(int ArtNr, int Voorraad) //voorraad aanpassen
         {
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();

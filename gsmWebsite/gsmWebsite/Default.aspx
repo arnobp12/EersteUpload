@@ -4,13 +4,20 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <link href="StyleSheet1.css" rel="stylesheet" />
     <title></title>
 </head>
+
 <body>
     <form id="form1" runat="server">
+        <div class="hero-bkg-animated">
+  <h1>Online GSM-Shop-Catalogus</h1>
+</div>
         <div>
-            <h1>Online GSM-shop - Catalogus</h1>
+            <div class="hero-bkg-animated2">
+                
             <p>
+                <center>
                 <asp:GridView ID="gvArtikels" runat="server" AutoGenerateColumns="False" Height="270px" Width="1146px" OnSelectedIndexChanged="gvArtikels_SelectedIndexChanged">
                     <Columns>
                         <asp:BoundField DataField="ArtNr" HeaderText="ArtNr">
@@ -32,8 +39,10 @@
                         <ItemStyle Width="250px" />
                         </asp:CommandField>
                     </Columns>
-                </asp:GridView>
+                </asp:GridView> 
+                 </center>
             </p>
+                </div>
         </div>
         <asp:Button ID="btnWinkelmandje" runat="server" OnClick="btnWinkelmandje_Click" Text="Bekijk de inhoud van het winkelmandje..." Width="342px" />
     </form>

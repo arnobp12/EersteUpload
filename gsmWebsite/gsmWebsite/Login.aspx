@@ -13,10 +13,15 @@
 </head>
 <body>
     <form id="form1" runat="server">
+
+        <div class="hero-bkg-animated">
     <h2>Online GSM-Shop - Login</h2>
+        </div>
+        <div class="hero-bkg-animated2">
         <table class="auto-style1">
             <tr>
                 <td>
+                     
     <p>
         GebruikersNaam:&nbsp;
         <asp:TextBox ID="txtGebruikersNaam" runat="server"></asp:TextBox>
@@ -43,6 +48,8 @@
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" Width="170px" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </p>
+        </div>
     </form>
+    
 </body>
 </html>

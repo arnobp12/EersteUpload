@@ -80,6 +80,7 @@
     <Content Include="Images\samsung s10 green.png" />
     <Content Include="ItemToevoegenWinkelmandje.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="StyleSheet1.css" />
     <Content Include="Web.config" />
     <Content Include="Winkelmandje.aspx" />
     <Content Include="WinkelmandLeeg.aspx" />
